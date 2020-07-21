@@ -1,8 +1,9 @@
 <template>
-      <div class="col m3">
-        <div class="card orange">
-        <div class="card-content white-text">
+      <div class="col s12 m3">
+        <div class="card">
+        <div class="card-content">
           <span class="card-title">{{titulo}}</span>
+          <img id="imagen" img :src="require('@/assets/' + direccion +'.svg')" alt="">
           <p>Vas a ganar entre {{min}} y {{max}} de oro</p><br>
           <button v-on:click="AgregaOro" class="waves-effect waves-light btn">Buscar Oro</button>
         </div>
@@ -17,8 +18,8 @@ export default {
     titulo:String,
     min:Number,
     max:Number,
-    Actividad:String
-  },
+    direccion:String
+      },
   methods: {
     AgregaOro: function(){
       const sacar_oro= Math.round(Math.random() * (this.max - this.min)+ this.min);
@@ -33,11 +34,13 @@ export default {
   }
 }
 </script>
-
 <style scoped>
 .card{
   text-align: center;
   border-radius: 5px;
+  border-color: lightseagreens;
 }
-
+#imagen{
+  width: 70px;
+}
 </style>
