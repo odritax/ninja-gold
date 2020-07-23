@@ -1,14 +1,14 @@
 <template>
-      <div class="col s12 m3">
-        <div class="card">
-        <div class="card-content">
-          <span class="card-title">{{titulo}}</span>
-          <img id="imagen" img :src="require('@/assets/' + direccion +'.svg')" alt="">
-          <p>Vas a ganar entre {{min}} y {{max}} de oro</p><br>
-          <button v-on:click="AgregaOro" class="waves-effect waves-light btn">Buscar Oro</button>
-        </div>
-      </div>
-      </div>
+  <div class="col s12 m3">
+    <div class="card">
+    <div class="card-content">
+      <span class="card-title">{{titulo}}</span>
+      <img id="imagen" img :src="require('@/assets/' + direccion +'.svg')" alt="">
+      <p>Vas a ganar entre {{min}} y {{max}} de oro</p><br>
+      <button v-on:click="AgregaOro" class="waves-effect waves-light btn">Buscar Oro</button>
+    </div>
+  </div>
+  </div>
 </template>
 <script>
 import OroInicial from '@/OroInicial.js'
@@ -28,8 +28,9 @@ export default {
       const dia = new Date()
       const fecha =`${dia.getDate()}/${dia.getMonth()}/${dia.getFullYear()}`;
       const hora = `${dia.getHours()}:${dia.getMinutes()}`;
-      const nueva_actividad=`${sacar_oro<0?'Perdiste':'Ganaste'} ${sacar_oro} desde ${this.titulo} ${hora}  ${fecha}`;
-      OroInicial.agregar_actividades(nueva_actividad);
+      const nueva_actividad=`${sacar_oro<0?'Perdiste':'Ganaste'} ${sacar_oro} desde ${this.titulo}(${hora}  ${fecha})`;
+      const objeto_actividad={texto:nueva_actividad,num:sacar_oro};
+      OroInicial.agregar_actividades(objeto_actividad);
     }
   }
 }

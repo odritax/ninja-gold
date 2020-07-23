@@ -1,6 +1,6 @@
 <template>
 <div>
-  <h3 id="titulo">Tu Oro es: {{contador_oro}}</h3>
+  <h3 id="titulo">Tu Oro es: <span v-bind:class="{verde: contador_oro > 0, rojo: contador_oro < 0 }">{{contador_oro}}</span></h3>
       <div class="row">
           <Gold titulo="Granja" :min="2" :max="5"  direccion="granja"/>
           <Gold titulo="Cueva"  :min="5" :max="10" direccion="cueva"/>
@@ -11,7 +11,7 @@
         <h4>Actividades</h4>
         <div id="lista">
           <ul>
-            <li v-for="(actividad,i) in actividades" v-bind:key="i">{{actividad}} 
+            <li v-bind:class="{verde: actividad.num > 0, rojo: actividad.num < 0 }" v-for="(actividad,i) in actividades" v-bind:key="i">{{actividad.texto}} 
             <a><span class="close" v-on:click="$delete(actividades,i)">x</span></a></li>
           </ul>
         </div>
@@ -45,11 +45,13 @@ body{
   text-align: center;
   color: white;
 }
-#cofre{
-  position:relative;
-  top:20px;
-  width:120px;
+.rojo{
+  color:#FC7861;
 }
+.verde{
+  color:#24A93B;
+}
+
 #actividades{
   background-color: white;
   margin:20px;
