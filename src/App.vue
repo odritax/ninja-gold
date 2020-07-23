@@ -16,18 +16,21 @@
           </ul>
         </div>
       </div>
+      <Reset/>
 </div>
 </template>
 <script>
 import Gold from '@/components/Gold.vue'
 import OroInicial from '@/OroInicial.js'
+import Reset from '@/components/Reset.vue'
 export default {
   name: 'App',
    data: function(){
-    return OroInicial.state
+   return OroInicial.state
   },
   components: {
-  Gold
+  Gold,
+  Reset
   }
 }
 </script>
@@ -35,7 +38,7 @@ export default {
 <style>
 body{
   font-family: 'Ubuntu', sans-serif;
-  background-color: #26a69a;
+  background-color: #33AD8F;
   color: grey;
 }
 #titulo{

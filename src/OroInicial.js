@@ -9,5 +9,9 @@ export default{
     },
     agregar_actividades(nueva_actividad){
         this.state.actividades=[...this.state.actividades,nueva_actividad];
+    },
+    reset(){
+       this.state.gold=0;
+       this.state.actividades=[""];
     }
 }
