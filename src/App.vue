@@ -21,13 +21,12 @@
 </template>
 <script>
   import Gold from '@/components/Gold.vue'
-  import OroInicial from '@/OroInicial.js'
   import Reset from '@/components/Reset.vue'
   export default {
     name: 'App',
-    data: function(){
-      return OroInicial.state
-    },
+   data: function() {
+    return this.$store.state
+  },
     components:{
       Gold,
       Reset

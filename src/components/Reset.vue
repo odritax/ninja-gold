@@ -6,14 +6,13 @@
  </div>
 </template>
 <script>
-  import OroInicial from '@/OroInicial.js'
   export default {
     name:'Reset',
     methods: {
       reset: function(){
         // ev.preventDefault();
         if(window.confirm('¿Quieres reiniciar tu oro?')){
-          OroInicial.reset();
+          this.$store.commit("reset");
         }
       }
     }

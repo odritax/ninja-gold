@@ -11,7 +11,6 @@
   </div>
 </template>
 <script>
-  import OroInicial from '@/OroInicial.js'
   export default {
   name:'Gold',
   props: {
@@ -24,13 +23,13 @@
     AgregaOro: function(){
       const sacar_oro= Math.round(Math.random() * (this.max - this.min)+ this.min);
       console.log(sacar_oro);
-      OroInicial.sumar_oro(sacar_oro);
+     this.$store.commit("sumar_oro", sacar_oro);
       const dia = new Date()
       const fecha =`${dia.getDate()}/${dia.getMonth()}/${dia.getFullYear()}`;
       const hora = `${dia.getHours()}:${dia.getMinutes()}`;
       const nueva_actividad=`${sacar_oro<0?'Perdiste':'Ganaste'} ${sacar_oro} desde ${this.titulo}(${hora}  ${fecha})`;
       const objeto_actividad={texto:nueva_actividad,num:sacar_oro};
-      OroInicial.agregar_actividades(objeto_actividad);
+      this.$store.commit("agregar_actividades",objeto_actividad);
     }
   }
   }
